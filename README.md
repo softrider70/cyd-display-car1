@@ -35,6 +35,7 @@ idf.py build
 /compile           # Advanced options
 idf.py build        # Standard ESP-IDF
 ./build_cyd.ps1     # PowerShell Build Script
+./build_color_test.ps1  # Farb-Test (korrigierte MADCTL)
 ```
 
 ### Flash (First Time)
@@ -93,10 +94,6 @@ cyd-display-car1/
 ```
 📺 TFT_DC    - GPIO2
 📺 TFT_CS    - GPIO15
-📺 TFT_MOSI  - GPIO13
-📺 TFT_MISO  - GPIO12
-📺 TFT_SCLK  - GPIO14
-💡 TFT_BL    - GPIO21 (Backlight)
 ```
 
 **System:**
@@ -351,6 +348,16 @@ static uint16_t touch_read_channel(uint8_t cmd) {
 - WEISS (R+G+B) ✅
 ```
 
+**🎨 Farbsystem vollständig korrigiert (2026-05-06):**
+```
+🔧 MADCTL = 0x40 (RGB Mode) ✅
+📊 Hardware-Variante: RGB statt BGR ✅
+🧪 Farb-Test: Vollbild + 4-Quadrat + RGB-Streifen ✅
+🎯 Farben: ROT, GRÜN, BLAU, GELB, CYAN, MAGENTA, WEISS, SCHWARZ, GRAU ✅
+📋 Alle Projektdateien konsistent auf RGB Mode ✅
+🔍 Spezieller Farb-Test: ./build_color_test.ps1 ✅
+```
+
 **System Status:**
 ```
 🔧 ESP32-D0WD-V3 (Revision 301) ✅
@@ -359,7 +366,8 @@ static uint16_t touch_read_channel(uint8_t cmd) {
 ⚡ Flash: 2MB genutzt ✅
 📡 UART: 115200 Baud ✅
 👆 Touch: XPT2046 voll funktionsfähig ✅
-📺 Display: ILI9341 mit Touch-Steuerung ✅
+📺 Display: ILI9341 mit RGB Farbkorrektur ✅
+🎨 Farbschema: RGB Mode (0x40) für dieses Board ✅
 ```
 
 ### Browser Demo (sofort verfügbar)
@@ -401,7 +409,8 @@ idf.py app-flash monitor
 
 **Build Status:** ✅ ESP-IDF v6.0 konfiguriert und kompiliert  
 **Hardware Status:** ✅ CYD Board verifiziert, Touch System voll funktionsfähig  
-**Demo Status:** ✅ Touch Vollbild-Demo läuft, Dashboard bereit für LVGL
+**Demo Status:** ✅ Touch Vollbild-Demo läuft, Dashboard bereit für LVGL  
+**Farb-Status:** ✅ ILI9341 Farbschema korrigiert (RGB Mode 0x40), Farb-Test verifiziert
 
 ---
 

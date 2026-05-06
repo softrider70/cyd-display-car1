@@ -52,7 +52,7 @@
 #define LVGL_BUFFER_HEIGHT  40
 
 // ILI9341 MADCTL (Memory Access Control) für korrekte Farben
-#define ILI9341_MADCTL  0x48  // Portrait + BGR Mode
+#define ILI9341_MADCTL  0x40  // Portrait + RGB Mode
 
 // ============================================================================
 // LVGL Configuration

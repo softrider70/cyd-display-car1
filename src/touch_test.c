@@ -78,7 +78,7 @@ static void lcd_init(void) {
     vTaskDelay(pdMS_TO_TICKS(150));
 
     lcd_cmd(0x36); // MADCTL
-    lcd_data_byte(0x48);
+    lcd_data_byte(0x40);
 
     lcd_cmd(0x3A); // Pixel Format 16bit
     lcd_data_byte(0x55);
