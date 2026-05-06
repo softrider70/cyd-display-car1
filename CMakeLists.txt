@@ -1,22 +1,9 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
-project(cyd-display-car1 C)
-
-set(ESP_PLATFORM esp32)
-set(EXTRA_CMAKE_MODULES ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-
+# ESP-IDF Build-System einbinden (muss vor project() stehen)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 
-# Include FreeRTOS configuration
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+# Hauptkomponente liegt in src/ statt main/
+set(EXTRA_COMPONENT_DIRS "src")
 
-# Source files
-set(SRCS
-    src/main.c
-)
-
-# Project setup
-project_start(cyd-display-car1)
-idf_component_register(SRCS ${SRCS}
-                       INCLUDE_DIRS include)
-project_end()
+project(cyd-display-car1)

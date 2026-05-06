@@ -1,0 +1,57 @@
+# ESP-IDF Build Output
+build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# ESP-IDF Tools
+.espressif/
+dist/
+
+# IDE und Editor
+.windsurf/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Betriebssystem
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporäre Dateien
+*.tmp
+*.temp
+*.log
+
+# Backup Dateien
+*.bak
+*.backup
+
+# Test-Dateien (nicht für Production)
+*_test.c
+demo_simulation.html
+build_*.ps1
+build_*.bat
+install_*.bat
+
+# Alte LVGL Ports (nicht mehr benötigt)
+src/lv_port_*
+components/

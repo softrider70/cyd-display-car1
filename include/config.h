@@ -6,9 +6,22 @@
 // ============================================================================
 // GPIO Pin Configuration
 // ============================================================================
-// Adjust these pins based on your hardware
-#define GPIO_LED        2   // LED pin (change as needed)
-#define GPIO_BUTTON     0   // Button pin (change as needed)
+// CYD (Cheap Yellow Display) specific pins
+#define GPIO_LED        2   // Built-in LED
+#define GPIO_BUTTON     0   // BOOT button
+
+// CYD Display SPI pins (ESP32 - Verifizierte Pin-Belegung)
+#define LCD_MOSI        13  // SPI MOSI
+#define LCD_MISO        12  // SPI MISO
+#define LCD_CLK         14  // SPI CLK
+#define LCD_CS          15  // SPI CS
+#define LCD_DC          2   // Data/Command (GPIO2)
+#define LCD_RST         -1  // Reset (Connected to ESP32 RST)
+#define LCD_BLK         21  // Backlight
+
+// CYD Touch I2C pins
+#define TOUCH_SDA       6   // I2C SDA
+#define TOUCH_SCL       5   // I2C SCL
 
 // ============================================================================
 // FreeRTOS Configuration
@@ -27,8 +40,26 @@
 // ============================================================================
 // Application Defaults
 // ============================================================================
-#define APP_VERSION "0.1.0"
+#define APP_VERSION "1.0.0"
 #define APP_LOGLEVEL CONFIG_APP_LOGLEVEL  // From sdkconfig
+
+// ============================================================================
+// Display Configuration
+// ============================================================================
+#define LCD_WIDTH       240  // ILI9341 Portrait
+#define LCD_HEIGHT      320
+#define LCD_PIXEL_FORMAT LV_COLOR_FORMAT_16
+#define LVGL_BUFFER_HEIGHT  40
+
+// ILI9341 MADCTL (Memory Access Control) für korrekte Farben
+#define ILI9341_MADCTL  0x48  // Portrait + BGR Mode
+
+// ============================================================================
+// LVGL Configuration
+// ============================================================================
+#define LVGL_TICK_PERIOD_MS    5
+#define LVGL_TASK_STACK_SIZE   4096
+#define LVGL_TASK_PRIORITY     2
 
 // ============================================================================
 // Security Configuration (optional)
