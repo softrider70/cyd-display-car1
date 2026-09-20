@@ -1,37 +1,22 @@
-# Copilot Configuration for ESP32 Template
+# Copilot-Instruktionen – cyd-display-car1
 
-## Skills (Automation)
+**Projekt:** Auto-Dashboard auf einem **CYD** (Cheap Yellow Display,
+ESP32-2432S028R: ILI9341 320x240 quer + Touch) mit LVGL-Oberflaeche.
 
-### Build & Upload
-- **/build-project** — Compile the project, generate `${PROJECT_NAME}.bin`
-- **/upload** — Smart router (first-time setup vs. update)
-- **/upload-firmware** — Fast app-only update (~3 seconds)
-- **/initial-upload** — Full bootloader + partition + app (~20 seconds, one-time setup)
+## Bedeutung fuer andere Projekte
 
-### Version Control
-- **/commit** — Stage changes, generate smart commit message, push to git
+Dieses Projekt ist die **Referenz fuer die CYD-Hardware**. Die hier
+funktionierende Belegung und der rohe SPI-Treiber wurden fuer
+`../autofrontcam/cyd` als Vorlage uebernommen. Wer die CYD-Pins braucht,
+schaut in `include/config.h` dieses Projekts.
 
-## Supported Boards
-The template auto-supports 5 ESP32 variants:
-- **ESP32** (dual-core, 520KB SRAM + PSRAM)
-- **ESP32-S2** (single-core, 320KB SRAM)
-- **ESP32-S3** (dual-core, 512KB SRAM + PSRAM, USB)
-- **ESP32-C3** (single-core RISC-V, 400KB SRAM)
-- **ESP32-C6** (dual-core RISC-V, 512KB SRAM + PSRAM)
+## Wichtig fuer die Zusammenarbeit
 
-## Workflow
-```
-1. Code change
-2. /build-project       (compile)
-3. /upload-firmware     (fast upload)
-4. (watch output)
-5. /commit              (save to git)
-```
+- **Sprache ist Deutsch** - Antworten, Kommentare und Doku.
+- Kurze Saetze, Fachwoerter erklaeren, keine Vermutungen: pruefen statt raten.
+- Nach jeder Aenderung **bauen und flashen**, dann die Ausgabe im Log pruefen.
+- Bauen und flashen: ESP-IDF (6.1) aktivieren, PATH aufraeumen, dann im
+  Projektordner `idf.py -p COMx flash`.
 
-## Documentation
-- See `BUILD_GUIDE.md` for manual build/upload procedures
-- See `SECURITY.md` for NVS encryption, Secure Boot, TLS setup
-- See `.github/TEMPLATE_HELP.md` for comprehensive German guide
-
----
-Template Version: 0.1.0
+Doku im Projekt: `PROJECT.md` (Spezifikation), `README.md` (Uebersicht),
+`include/config.h` (Pins/Parameter).
